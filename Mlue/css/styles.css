@@ -1,3 +1,27 @@
+/* ==========================================================================
+   TABLE OF CONTENTS
+   --------------------------------------------------------------------------
+   1. Design System & Variables
+   2. Base & Reset
+   3. Global Header & Navigation (.app-header, .nav-brand, .brand-icon)
+   4. Page Layout (.main-content)
+   5. Challenge Switcher Sidebar (.challenge-sidebar, .challenge-tabs)
+   6. Workspace Area & General UI Components
+      - Workspace Shell (.workspace-area, .panel-header)
+      - Form Elements & Search Bars (.search-bar-card, .btn-primary)
+      - Product Display Grid & Cards (.product-grid, .product-card)
+   7. DSA Explanation Accordion & Complexity Tables
+   8. Feature-Specific Components
+      - Top K Popular Feature (.popular-card, .rank-badge)
+      - Personalized Recommendations (.rec-card, .searchable-select-wrapper)
+      - Empty & Placeholder States (.empty-state-card)
+   9. Helper & Utility Classes (.hidden)
+   10. Media Queries / Responsiveness
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design System & Variables
+   -------------------------------------------------------------------------- */
 :root {
   --bg-main: #f8fafc;
   --bg-card: #ffffff;
@@ -9,6 +33,9 @@
   --primary-hover: #1d4ed8;
 }
 
+/* --------------------------------------------------------------------------
+   2. Base & Reset
+   -------------------------------------------------------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,13 +43,15 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Kedebideri', sans-serif;
   background-color: var(--bg-main);
   color: var(--text-main);
   min-height: 100vh;
 }
 
-/* 1. Global Application Navbar */
+/* --------------------------------------------------------------------------
+   3. Global Header & Navigation
+   -------------------------------------------------------------------------- */
 .app-header {
   position: sticky;
   top: 0;
@@ -40,6 +69,7 @@ body {
   padding: 0.85rem 1.5rem;
 }
 
+/* Brand & Logo styling */
 .nav-brand {
   display: flex;
   align-items: center;
@@ -48,6 +78,26 @@ body {
   font-size: 1.15rem;
 }
 
+.brand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Constrain and scale the brand logo SVG smoothly */
+.brand-icon svg {
+  display: block;
+  width: 32px;
+  height: auto;
+  max-height: 32px;
+}
+
+.brand-title {
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+/* Navigation links */
 .nav-links {
   display: flex;
   list-style: none;
@@ -67,6 +117,7 @@ body {
   color: var(--primary);
 }
 
+/* Right-side cart button & notification badge */
 .nav-actions {
   display: flex;
   align-items: center;
@@ -93,7 +144,9 @@ body {
   border-radius: 9999px;
 }
 
-/* 2. Page Layout */
+/* --------------------------------------------------------------------------
+   4. Page Layout
+   -------------------------------------------------------------------------- */
 .main-content {
   max-width: 1400px;
   margin: 1.5rem auto;
@@ -104,7 +157,9 @@ body {
   align-items: start;
 }
 
-/* 3. Challenge Switcher Sidebar */
+/* --------------------------------------------------------------------------
+   5. Challenge Switcher Sidebar
+   -------------------------------------------------------------------------- */
 .challenge-sidebar {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -175,55 +230,110 @@ body {
   opacity: 0.7;
 }
 
-/* Fallback / Empty State UI */
-.empty-state-card {
+/* --------------------------------------------------------------------------
+   6. Workspace Area & General UI Components
+   -------------------------------------------------------------------------- */
+/* Main container wrapper for active panel */
+.workspace-area {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  min-height: 480px;
+}
+
+/* Section Header */
+.panel-header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 4rem 2rem;
-  background-color: #ffffff;
-  border: 1px dashed var(--border);
-  border-radius: 12px;
-  margin: 1rem 0;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.empty-state-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.empty-state-card h3 {
-  font-size: 1.3rem;
-  color: var(--text-main);
-  margin-bottom: 0.5rem;
-}
-
-.empty-state-card p {
+.panel-desc {
+  font-size: 0.9rem;
   color: var(--text-muted);
-  max-width: 480px;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+.complexity-badge {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  color: #334155;
+}
+
+/* Search Bar & Controls Bar */
+.search-bar-card {
+  background: var(--bg-main);
+  padding: 1rem;
+  border-radius: 8px;
   margin-bottom: 1.5rem;
 }
 
-.empty-state-meta {
+.input-inline {
   display: flex;
   gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-.meta-tag {
-  background: var(--bg-main);
+.input-inline input {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
   border: 1px solid var(--border);
-  font-size: 0.75rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
-  color: var(--text-muted);
-  font-family: monospace;
+  border-radius: 6px;
+  font-size: 0.95rem;
 }
 
-/* --- DSA Explanation Accordion --- */
+.btn-primary {
+  padding: 0.6rem 1.2rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.dropdown-select {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* Product Cards & Grid Container */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. DSA Explanation Accordion & Complexity Tables
+   -------------------------------------------------------------------------- */
 .dsa-explanation-card {
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -298,7 +408,7 @@ body {
   margin-bottom: 0.35rem;
 }
 
-/* Complexity Table */
+/* Comparison Complexity Table */
 .complexity-table-wrapper {
   overflow-x: auto;
   margin-top: 0.5rem;
@@ -328,11 +438,14 @@ body {
   background-color: #f1f5f9;
   padding: 0.15rem 0.35rem;
   border-radius: 4px;
-  font-family: monospace;
   color: #0f172a;
   font-size: 0.8rem;
 }
 
+/* --------------------------------------------------------------------------
+   8. Feature-Specific Components
+   -------------------------------------------------------------------------- */
+/* Challenge 2: Top K Popular Products */
 .popular-card {
   position: relative;
   border-top: 3px solid var(--primary);
@@ -360,15 +473,7 @@ body {
   margin-top: 0.25rem;
 }
 
-.dropdown-select {
-  padding: 0.6rem 0.8rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background-color: #ffffff;
-  font-size: 0.95rem;
-  cursor: pointer;
-}
-
+/* Challenge 5: Personalized Recommendations */
 .rec-card {
   border-top: 3px solid #10b981;
   position: relative;
@@ -395,7 +500,7 @@ body {
   margin-top: 0.25rem;
 }
 
-/* Searchable Select Dropdown */
+/* Searchable Combobox / Typeahead */
 .searchable-select-wrapper {
   position: relative;
   flex: 1;
@@ -409,7 +514,7 @@ body {
   font-size: 0.95rem;
   background-color: #ffffff;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .searchable-input:focus {
@@ -441,7 +546,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background 0.15s ease;
+  transition: background-color 0.15s ease;
 }
 
 .searchable-dropdown-item:hover,
@@ -463,109 +568,74 @@ body {
   color: var(--text-muted);
 }
 
-/* 5. Workspace Panels & Content */
-.workspace-area {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1.5rem;
-  min-height: 480px;
-}
-
-.panel-header {
+/* Fallback & Under-Construction State */
+.empty-state-card {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  margin: 1rem 0;
 }
 
-.panel-desc {
-  font-size: 0.9rem;
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state-card h3 {
+  font-size: 1.3rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-card p {
   color: var(--text-muted);
-  margin-top: 0.25rem;
-}
-
-.complexity-badge {
-  background: #f1f5f9;
-  border: 1px solid var(--border);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  color: #334155;
-  font-family: monospace;
-}
-
-.search-bar-card {
-  background: var(--bg-main);
-  padding: 1rem;
-  border-radius: 8px;
+  max-width: 480px;
+  font-size: 0.95rem;
+  line-height: 1.5;
   margin-bottom: 1.5rem;
 }
 
-.input-inline {
+.empty-state-meta {
   display: flex;
   gap: 0.5rem;
-  margin-top: 0.5rem;
 }
 
-.input-inline input {
-  flex: 1;
-  padding: 0.6rem 0.8rem;
+.meta-tag {
+  background: var(--bg-main);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  color: var(--text-muted);
 }
 
-.btn-primary {
-  padding: 0.6rem 1.2rem;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background: var(--primary-hover);
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-.product-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
+/* --------------------------------------------------------------------------
+   9. Helper & Utility Classes
+   -------------------------------------------------------------------------- */
 .hidden {
   display: none !important;
 }
 
-/* Responsive breakpoint */
+/* --------------------------------------------------------------------------
+   10. Media Queries / Responsiveness
+   -------------------------------------------------------------------------- */
 @media (max-width: 860px) {
   .main-content {
     grid-template-columns: 1fr;
   }
+
   .challenge-tabs {
     flex-direction: row;
     overflow-x: auto;
     padding-bottom: 0.5rem;
   }
-  .challenge-pill {
-    white-space: nowrap;
-  }
+
   .explanation-grid {
     grid-template-columns: 1fr;
   }
