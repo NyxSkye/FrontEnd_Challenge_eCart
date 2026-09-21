@@ -159,6 +159,83 @@
         <div id="price-results-container" class="product-grid"></div>
       </section>
 
+      <!-- Challenge 2 Section inside .workspace-area -->
+      <section id="challenge-2" class="challenge-panel hidden" role="tabpanel">
+        <header class="panel-header">
+          <div>
+            <h2>🔥 Top K Popular Products</h2>
+            <p class="panel-desc">Calculates popularity based on rating × reviews using a Min-Heap of size K.</p>
+          </div>
+          <span class="complexity-badge">O(N log K)</span>
+        </header>
+
+        <!-- Explanation Card -->
+        <details class="dsa-explanation-card">
+          <summary class="explanation-summary">
+            <span class="summary-left">
+              <span class="info-icon">💡</span>
+              <strong>How It Works & Algorithm Details</strong>
+            </span>
+            <span class="toggle-indicator">▼</span>
+          </summary>
+          <div class="explanation-content">
+            <div class="explanation-grid">
+              <div class="explanation-block">
+                <h4>Core Concept</h4>
+                <p>
+                  When $K \ll N$, a full array sort is wasteful. By maintaining a Min-Heap of size $K$, the smallest of our current top candidates stays at the root. We only swap if a new product beats the root, discarding lower-scoring items in logarithmic time.
+                </p>
+              </div>
+              <div class="explanation-block">
+                <h4>Data Structure</h4>
+                <p><strong>Min-Heap (Binary Heap):</strong> $O(1)$ peek at minimum of top $K$, and $O(\log K)$ insert/delete.</p>
+              </div>
+            </div>
+            <div class="complexity-table-wrapper">
+              <table class="complexity-table">
+                <thead>
+                  <tr>
+                    <th>Approach</th>
+                    <th>Time Complexity</th>
+                    <th>Space Complexity</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Full Sort</strong></td>
+                    <td><code>O(N log N)</code></td>
+                    <td><code>O(N)</code></td>
+                    <td>Sorts entire catalog even if only top 3 items are needed.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Min-Heap (Size K)</strong></td>
+                    <td><code>O(N log K)</code></td>
+                    <td><code>O(K)</code></td>
+                    <td>Optimal when $K$ is small. Memory never exceeds $K$ items.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <!-- Feature Controls -->
+        <div class="search-bar-card">
+          <label for="top-k-select"><strong>Show Top:</strong></label>
+          <div class="input-inline">
+            <select id="top-k-select" class="dropdown-select">
+              <option value="3">Top 3 Products</option>
+              <option value="5">Top 5 Products</option>
+              <option value="10">Top 10 Products</option>
+            </select>
+            <button id="show-popular-btn" class="btn-primary">Show Products</button>
+          </div>
+        </div>
+
+        <div id="popular-results-container" class="product-grid"></div>
+      </section>
+
       <!-- Reusable Fallback Section for unbuilt challenges -->
       <section id="challenge-placeholder" class="challenge-panel hidden" role="tabpanel">
         <div class="empty-state-card">
@@ -179,6 +256,7 @@
   <script src="js/data.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/features/priceFinder.js"></script>
+  <script src="js/features/popularProducts.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

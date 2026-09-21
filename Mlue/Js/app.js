@@ -80,4 +80,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // --- Challenge 2: Popular Products Controller ---
+
+  const topKSelect = document.getElementById("top-k-select");
+  const showPopularBtn = document.getElementById("show-popular-btn");
+
+  function loadPopularProducts() {
+    if (!topKSelect) return;
+    const k = parseInt(topKSelect.value, 10) || 3;
+    const popularItems = PopularProducts.getTopK(k);
+    UI.renderPopularProducts("popular-results-container", popularItems);
+  }
+
+  // 1. Click button to show
+  // Only trigger when the button is explicitly clicked
+  if (showPopularBtn) {
+    showPopularBtn.addEventListener("click", loadPopularProducts);
+  }
 });

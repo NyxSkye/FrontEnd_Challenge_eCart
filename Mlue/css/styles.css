@@ -333,6 +333,42 @@ body {
   font-size: 0.8rem;
 }
 
+.popular-card {
+  position: relative;
+  border-top: 3px solid var(--primary);
+}
+
+.rank-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.popularity-metric {
+  font-size: 0.82rem;
+  color: #b45309;
+  background: #fef3c7;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  width: fit-content;
+  margin-top: 0.25rem;
+}
+
+.dropdown-select {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
 /* 5. Workspace Panels & Content */
 .workspace-area {
   background: var(--bg-card);
