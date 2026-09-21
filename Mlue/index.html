@@ -16,9 +16,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="#" class="nav-link active">Challenges</a></li>
-        <li><a href="#" class="nav-link">Products</a></li>
-        <li><a href="#" class="nav-link">Analytics</a></li>
-        <li><a href="#" class="nav-link">Delivery Network</a></li>
+        <li><a href="#" class="nav-link">Core CS Concepts</a></li>
       </ul>
       <div class="nav-actions">
         <button id="cart-summary-btn" class="nav-action-btn" aria-label="Cart">
@@ -109,7 +107,7 @@
                 <p>
                   Instead of scanning every product linearly, we pre-sort the catalog by price once.
                   A binary search then pinpoints the exact or closest insertion index in logarithmic time,
-                  expanding two pointers outward to extract the $K$ closest results.
+                  expanding two pointers outward to extract the <em>K</em> closest results.
                 </p>
               </div>
 
@@ -161,16 +159,19 @@
         <div id="price-results-container" class="product-grid"></div>
       </section>
 
-      <!-- Challenge 2 Placeholder Section -->
-      <section id="challenge-2" class="challenge-panel hidden" role="tabpanel">
-        <header class="panel-header">
-          <div>
-            <h2>Top K Popular Products</h2>
-            <p class="panel-desc">Ranks items by popularity score using a Min-Heap.</p>
+      <!-- Reusable Fallback Section for unbuilt challenges -->
+      <section id="challenge-placeholder" class="challenge-panel hidden" role="tabpanel">
+        <div class="empty-state-card">
+          <div class="empty-state-icon">🚧</div>
+            <h3 id="placeholder-title">Feature Under Construction</h3>
+            <p id="placeholder-message">
+              This challenge hasn't been implemented yet. Please be patient while we build out the feature and its underlying data structure!
+            </p>
+          <div class="empty-state-meta">
+              <span id="placeholder-target-badge" class="meta-tag">challenge-x</span>
+              <span class="meta-tag">Pending Implementation</span>
           </div>
-          <span class="complexity-badge">O(N log K)</span>
-        </header>
-        <div id="top-k-results-container" class="product-grid"></div>
+        </div>
       </section>
     </div>
   </main>
