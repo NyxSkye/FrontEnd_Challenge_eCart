@@ -23,14 +23,25 @@
    1. Design System & Variables
    -------------------------------------------------------------------------- */
 :root {
-  --bg-main: #f8fafc;
-  --bg-card: #ffffff;
+  /* Button and hover */
+  --button: #1d4ed8;
+  --button-bg: #eff6ff;
+
+  /* Text of 3 types */
+  --text: #0f172a;
+  --dark-text: #334155;
+  --light-text: #64748b;
+
+  /* Main Background */
+  --background: #f8fafc;
+
+  /* Card, Form, and Border */
+  --white: #ffffff;
   --border: #e2e8f0;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --primary: #2563eb;
-  --primary-light: #eff6ff;
-  --primary-hover: #1d4ed8;
+
+  --surface-border: 1px solid var(--border);
+  --radius: 10px;
+  --shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 }
 
 /* --------------------------------------------------------------------------
@@ -42,10 +53,17 @@
   padding: 0;
 }
 
-body {
+body,
+button,
+input,
+select,
+textarea {
   font-family: 'Kedebideri', sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-main);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
   min-height: 100vh;
 }
 
@@ -56,7 +74,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: var(--bg-card);
+  background-color: var(--white);
   border-bottom: 1px solid var(--border);
 }
 
@@ -93,7 +111,7 @@ body {
 }
 
 .brand-title {
-  color: var(--text-main);
+  color: var(--text);
   letter-spacing: -0.02em;
 }
 
@@ -106,7 +124,7 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: var(--text-muted);
+  color: var(--light-text);
   font-weight: 500;
   font-size: 0.9rem;
   transition: color 0.2s;
@@ -114,7 +132,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--primary);
+  color: var(--button);
 }
 
 /* Right-side cart button & notification badge */
@@ -123,21 +141,26 @@ body {
   align-items: center;
 }
 
-.nav-action-btn {
-  background: var(--primary-light);
-  border: 1px solid #bfdbfe;
-  color: var(--primary);
-  padding: 0.45rem 0.8rem;
-  border-radius: 6px;
+.nav-action-btn,
+.btn-primary {
+  border-radius: var(--radius);
   font-weight: 600;
   cursor: pointer;
+  font-family: inherit;
+}
+
+.nav-action-btn {
+  background: var(--button-bg);
+  border: 1px solid #bfdbfe;
+  color: var(--button);
+  padding: 0.45rem 0.8rem;
   display: flex;
   align-items: center;
   gap: 0.4rem;
 }
 
 .badge {
-  background: var(--primary);
+  background: var(--button);
   color: white;
   font-size: 0.75rem;
   padding: 0.1rem 0.4rem;
@@ -160,10 +183,14 @@ body {
 /* --------------------------------------------------------------------------
    5. Challenge Switcher Sidebar
    -------------------------------------------------------------------------- */
+.challenge-sidebar,
+.workspace-area {
+  background: var(--white);
+  border: var(--surface-border);
+  border-radius: var(--radius);
+}
+
 .challenge-sidebar {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
   padding: 1rem;
 }
 
@@ -178,15 +205,15 @@ body {
   font-weight: 700;
   font-size: 0.85rem;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--light-text);
   letter-spacing: 0.04em;
 }
 
 .progress-pill {
   font-size: 0.75rem;
-  background: var(--bg-main);
+  background: var(--background);
   padding: 0.15rem 0.5rem;
-  border-radius: 4px;
+  border-radius: var(--radius);
   border: 1px solid var(--border);
 }
 
@@ -204,24 +231,25 @@ body {
   padding: 0.65rem 0.75rem;
   border: 1px solid transparent;
   background: transparent;
-  border-radius: 6px;
+  border-radius: var(--radius);
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--light-text);
   cursor: pointer;
   text-align: left;
   transition: all 0.15s ease-in-out;
+  font-family: inherit;
 }
 
 .challenge-pill:hover {
-  background-color: var(--bg-main);
+  background-color: var(--background);
   color: var(--text-main);
 }
 
 .challenge-pill.active {
-  background-color: var(--primary-light);
+  background-color: var(--button-bg);
   border-color: #bfdbfe;
-  color: var(--primary);
+  color: var(--button);
   font-weight: 600;
 }
 
@@ -235,9 +263,6 @@ body {
    -------------------------------------------------------------------------- */
 /* Main container wrapper for active panel */
 .workspace-area {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
   padding: 1.5rem;
   min-height: 480px;
 }
@@ -254,25 +279,25 @@ body {
 
 .panel-desc {
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--light-text);
   margin-top: 0.25rem;
 }
 
 .complexity-badge {
-  background: #f1f5f9;
+  background: var(--white);
   border: 1px solid var(--border);
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  color: #334155;
+  border-radius: var(--radius);
+  color: var(--dark-text);
 }
 
 /* Search Bar & Controls Bar */
 .search-bar-card {
-  background: var(--bg-main);
+  background: var(--background);
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: var(--radius);
   margin-bottom: 1.5rem;
 }
 
@@ -282,35 +307,35 @@ body {
   margin-top: 0.5rem;
 }
 
-.input-inline input {
-  flex: 1;
+.input-inline input,
+.dropdown-select,
+.searchable-input {
   padding: 0.6rem 0.8rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  border: var(--surface-border);
+  border-radius: var(--radius);
   font-size: 0.95rem;
+  background-color: var(--white);
+  font-family: inherit;
+}
+
+.input-inline input,
+.searchable-input {
+  flex: 1;
 }
 
 .btn-primary {
   padding: 0.6rem 1.2rem;
-  background: var(--primary);
+  background: var(--button);
   color: white;
   border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
   transition: background-color 0.15s ease;
 }
 
 .btn-primary:hover {
-  background: var(--primary-hover);
+  background: var(--button);
 }
 
 .dropdown-select {
-  padding: 0.6rem 0.8rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background-color: #ffffff;
-  font-size: 0.95rem;
   cursor: pointer;
 }
 
@@ -322,13 +347,15 @@ body {
 }
 
 .product-card {
-  background: var(--bg-card);
+  background: var(--white);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  border-top: 3px solid var(--button);
+  position: relative;
 }
 
 /* --------------------------------------------------------------------------
@@ -446,16 +473,12 @@ body {
    8. Feature-Specific Components
    -------------------------------------------------------------------------- */
 /* Challenge 2: Top K Popular Products */
-.popular-card {
-  position: relative;
-  border-top: 3px solid var(--primary);
-}
 
 .rank-badge {
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  background: var(--primary);
+  background: var(--button);
   color: #ffffff;
   font-weight: 700;
   font-size: 0.8rem;
@@ -474,18 +497,14 @@ body {
 }
 
 /* Challenge 5: Personalized Recommendations */
-.rec-card {
-  border-top: 3px solid #10b981;
-  position: relative;
-}
 
 .rec-badge {
   font-size: 0.72rem;
-  background-color: #ecfdf5;
-  color: #065f46;
-  border: 1px solid #a7f3d0;
+  background: var(--button-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
   padding: 0.2rem 0.45rem;
-  border-radius: 4px;
+  border-radius: var(--radius);
   width: fit-content;
   font-weight: 600;
   margin-bottom: 0.25rem;
@@ -493,8 +512,8 @@ body {
 
 .frequency-indicator {
   font-size: 0.8rem;
-  color: var(--text-muted);
-  background: var(--bg-main);
+  color: var(--light-text);
+  background: var(--background);
   padding: 0.3rem 0.5rem;
   border-radius: 4px;
   margin-top: 0.25rem;
@@ -508,17 +527,12 @@ body {
 
 .searchable-input {
   width: 100%;
-  padding: 0.6rem 0.8rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 0.95rem;
-  background-color: #ffffff;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .searchable-input:focus {
-  border-color: var(--primary);
+  border-color: var(--button);
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
 }
 
@@ -527,10 +541,10 @@ body {
   top: calc(100% + 4px);
   left: 0;
   right: 0;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background: var(--white);
+  border: var(--surface-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   max-height: 220px;
   overflow-y: auto;
   z-index: 50;
@@ -551,13 +565,13 @@ body {
 
 .searchable-dropdown-item:hover,
 .searchable-dropdown-item.highlighted {
-  background-color: var(--primary-light);
-  color: var(--primary);
+  background-color: var(--button-bg);
+  color: var(--button);
 }
 
 .searchable-dropdown-item .item-price {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--light-text);
   margin-left: 0.5rem;
 }
 
@@ -565,7 +579,7 @@ body {
   padding: 0.75rem;
   text-align: center;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--light-text);
 }
 
 /* Fallback & Under-Construction State */
@@ -576,9 +590,9 @@ body {
   justify-content: center;
   text-align: center;
   padding: 4rem 2rem;
-  background-color: #ffffff;
+  background-color: var(--white);
   border: 1px dashed var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   margin: 1rem 0;
 }
 
@@ -589,12 +603,12 @@ body {
 
 .empty-state-card h3 {
   font-size: 1.3rem;
-  color: var(--text-main);
+  color: var(--text);
   margin-bottom: 0.5rem;
 }
 
 .empty-state-card p {
-  color: var(--text-muted);
+  color: var(--light-text);
   max-width: 480px;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -607,12 +621,12 @@ body {
 }
 
 .meta-tag {
-  background: var(--bg-main);
+  background: var(--background);
   border: 1px solid var(--border);
   font-size: 0.75rem;
   padding: 0.25rem 0.6rem;
   border-radius: 4px;
-  color: var(--text-muted);
+  color: var(--light-text);
 }
 
 /* --------------------------------------------------------------------------
