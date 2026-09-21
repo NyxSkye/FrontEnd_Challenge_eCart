@@ -99,39 +99,109 @@ document.addEventListener("DOMContentLoaded", () => {
     showPopularBtn.addEventListener("click", loadPopularProducts);
   }
 
-  // --- Challenge 5: Recommendations Controller ---
-  const recProductSelect = document.getElementById("rec-product-select");
+  // --- Challenge 5: Searchable Dropdown & Recommendations Controller ---
+  const recSearchInput = document.getElementById("rec-search-input");
+  const recSelectedId = document.getElementById("rec-selected-id");
+  const recDropdownList = document.getElementById("rec-dropdown-list");
   const getRecsBtn = document.getElementById("get-recommendations-btn");
 
-  function populateRecProductDropdown() {
-    if (!recProductSelect || recProductSelect.options.length > 0) return;
+  let allRecProductsList = [];
 
-    const products = RecommendationEngine.getAllProductsList();
-    products.forEach((product) => {
-      const option = document.createElement("option");
-      option.value = product.id;
-      option.textContent = `${product.name} (₹${product.price.toLocaleString("en-IN")})`;
-      recProductSelect.appendChild(option);
+  // Populate the cache of products
+  function initSearchableRecDropdown() {
+    if (allRecProductsList.length > 0) return;
+    allRecProductsList = RecommendationEngine.getAllProductsList();
+  }
+
+  // Render filtered dropdown options
+  function renderDropdownOptions(searchTerm = "") {
+    if (!recDropdownList) return;
+    recDropdownList.innerHTML = "";
+
+    const query = searchTerm.toLowerCase().trim();
+    const filtered = allRecProductsList.filter((item) =>
+      item.name.toLowerCase().includes(query) ||
+      item.brand.toLowerCase().includes(query) ||
+      (item.tags && item.tags.some((t) => t.toLowerCase().includes(query)))
+    );
+
+    if (filtered.length === 0) {
+      const emptyLi = document.createElement("li");
+      emptyLi.className = "searchable-empty-item";
+      emptyLi.textContent = "No matching products found";
+      recDropdownList.appendChild(emptyLi);
+      recDropdownList.classList.remove("hidden");
+      return;
+    }
+
+    filtered.forEach((product) => {
+      const li = document.createElement("li");
+      li.className = "searchable-dropdown-item";
+      li.setAttribute("role", "option");
+      li.dataset.id = product.id;
+      li.innerHTML = `
+        <span>${product.name}</span>
+        <span class="item-price">₹${product.price.toLocaleString("en-IN")}</span>
+      `;
+
+      li.addEventListener("click", () => {
+        selectProduct(product);
+      });
+
+      recDropdownList.appendChild(li);
+    });
+
+    recDropdownList.classList.remove("hidden");
+  }
+
+  // Selection handler
+  function selectProduct(product) {
+    recSelectedId.value = product.id;
+    recSearchInput.value = `${product.name} (₹${product.price.toLocaleString("en-IN")})`;
+    recDropdownList.classList.add("hidden");
+  }
+
+  // Live typing filter
+  if (recSearchInput) {
+    recSearchInput.addEventListener("focus", () => {
+      renderDropdownOptions(recSearchInput.value);
+    });
+
+    recSearchInput.addEventListener("input", (e) => {
+      renderDropdownOptions(e.target.value);
     });
   }
 
+  // Close the floating list when clicking outside
+  document.addEventListener("click", (e) => {
+    if (recSearchInput && recDropdownList) {
+      if (!recSearchInput.contains(e.target) && !recDropdownList.contains(e.target)) {
+        recDropdownList.classList.add("hidden");
+      }
+    }
+  });
+
+  // Fetch recommendations handler
   function handleGetRecommendations() {
-    if (!recProductSelect) return;
-    const selectedProductId = recProductSelect.value;
-    const recommendations = RecommendationEngine.getRecommendations(selectedProductId, 3);
+    const targetId = recSelectedId ? recSelectedId.value : "";
+    if (!targetId) {
+      alert("Please select a product from the list first.");
+      return;
+    }
+
+    const recommendations = RecommendationEngine.getRecommendations(targetId, 3);
     UI.renderRecommendations("recommendations-results-container", recommendations);
   }
 
-  // Populate product dropdown when Challenge 5 tab is opened
+  if (getRecsBtn) {
+    getRecsBtn.addEventListener("click", handleGetRecommendations);
+  }
+
+  // Initialize when user navigates to the tab
   const challenge5Pill = document.querySelector('[data-target="challenge-5"]');
   if (challenge5Pill) {
     challenge5Pill.addEventListener("click", () => {
-      populateRecProductDropdown();
+      initSearchableRecDropdown();
     });
-  }
-
-  // Click button to fetch recommendations
-  if (getRecsBtn) {
-    getRecsBtn.addEventListener("click", handleGetRecommendations);
   }
 });

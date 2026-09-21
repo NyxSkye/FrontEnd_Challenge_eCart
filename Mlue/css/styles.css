@@ -395,6 +395,74 @@ body {
   margin-top: 0.25rem;
 }
 
+/* Searchable Select Dropdown */
+.searchable-select-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.searchable-input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.searchable-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.searchable-dropdown-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 50;
+  list-style: none;
+  padding: 0.35rem 0;
+  margin: 0;
+}
+
+.searchable-dropdown-item {
+  padding: 0.55rem 0.85rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.15s ease;
+}
+
+.searchable-dropdown-item:hover,
+.searchable-dropdown-item.highlighted {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.searchable-dropdown-item .item-price {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
+}
+
+.searchable-empty-item {
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
 /* 5. Workspace Panels & Content */
 .workspace-area {
   background: var(--bg-card);

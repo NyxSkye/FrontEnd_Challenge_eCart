@@ -297,13 +297,26 @@
           </div>
         </details>
 
-        <!-- Feature Controls -->
+        <!-- Feature Controls with Searchable Dropdown -->
         <div class="search-bar-card">
-          <label for="rec-product-select"><strong>Currently Viewing:</strong></label>
+          <label for="rec-search-input"><strong>Currently Viewing:</strong></label>
           <div class="input-inline">
-            <select id="rec-product-select" class="dropdown-select">
-              <!-- Will be populated dynamically by app.js -->
-            </select>
+            <!-- Custom Searchable Combobox Container -->
+            <div class="searchable-select-wrapper">
+              <input
+                type="text"
+                id="rec-search-input"
+                class="searchable-input"
+                placeholder="Type to search product (e.g. MacBook, Mouse)..."
+                autocomplete="off"
+              />
+              <!-- Hidden input holding the actual selected product ID -->
+              <input type="hidden" id="rec-selected-id" value="" />
+              
+              <!-- Dropdown list populated & filtered dynamically -->
+              <ul id="rec-dropdown-list" class="searchable-dropdown-list hidden" role="listbox"></ul>
+            </div>
+
             <button id="get-recommendations-btn" class="btn-primary">Get Recommendations</button>
           </div>
         </div>
