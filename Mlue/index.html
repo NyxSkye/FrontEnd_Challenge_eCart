@@ -236,6 +236,81 @@
         <div id="popular-results-container" class="product-grid"></div>
       </section>
 
+      <!-- Challenge 5 Section inside .workspace-area -->
+      <section id="challenge-5" class="challenge-panel hidden" role="tabpanel">
+        <header class="panel-header">
+          <div>
+            <h2>🤝 Personalized Recommendations</h2>
+            <p class="panel-desc">Recommends products frequently co-viewed by other users using co-occurrence graphs.</p>
+          </div>
+          <span class="complexity-badge">O(U · P) Map</span>
+        </header>
+
+        <!-- Explanation Card -->
+        <details class="dsa-explanation-card">
+          <summary class="explanation-summary">
+            <span class="summary-left">
+              <span class="info-icon">💡</span>
+              <strong>How It Works & Algorithm Details</strong>
+            </span>
+            <span class="toggle-indicator">▼</span>
+          </summary>
+          <div class="explanation-content">
+            <div class="explanation-grid">
+              <div class="explanation-block">
+                <h4>Core Concept</h4>
+                <p>
+                  Uses item-to-item collaborative filtering. For a selected product, we filter simulated browsing sessions to find users who viewed it, aggregate the co-occurrence counts of all other items they browsed, and rank the top results.
+                </p>
+              </div>
+              <div class="explanation-block">
+                <h4>Data Structure</h4>
+                <p><strong>Hash Map (Frequency Table):</strong> Enables $O(1)$ updates to co-occurrence counts across user histories.</p>
+              </div>
+            </div>
+            <div class="complexity-table-wrapper">
+              <table class="complexity-table">
+                <thead>
+                  <tr>
+                    <th>Approach</th>
+                    <th>Time Complexity</th>
+                    <th>Space Complexity</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Bipartite Traversal</strong></td>
+                    <td><code>O(U · P)</code></td>
+                    <td><code>O(M)</code></td>
+                    <td>Traverses matching sessions and tabulates frequency of candidate items.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Top K Extraction</strong></td>
+                    <td><code>O(M log K)</code></td>
+                    <td><code>O(M)</code></td>
+                    <td>Sorts or extracts the highest-frequency co-viewed products.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <!-- Feature Controls -->
+        <div class="search-bar-card">
+          <label for="rec-product-select"><strong>Currently Viewing:</strong></label>
+          <div class="input-inline">
+            <select id="rec-product-select" class="dropdown-select">
+              <!-- Will be populated dynamically by app.js -->
+            </select>
+            <button id="get-recommendations-btn" class="btn-primary">Get Recommendations</button>
+          </div>
+        </div>
+
+        <div id="recommendations-results-container" class="product-grid"></div>
+      </section>
+
       <!-- Reusable Fallback Section for unbuilt challenges -->
       <section id="challenge-placeholder" class="challenge-panel hidden" role="tabpanel">
         <div class="empty-state-card">
@@ -257,6 +332,7 @@
   <script src="js/ui.js"></script>
   <script src="js/features/priceFinder.js"></script>
   <script src="js/features/popularProducts.js"></script>
+  <script src="js/features/recommendations.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
