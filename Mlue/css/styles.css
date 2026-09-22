@@ -58,6 +58,7 @@ button,
 input,
 select,
 textarea {
+  user-select: none;
   font-family: 'Kedebideri', sans-serif;
 }
 

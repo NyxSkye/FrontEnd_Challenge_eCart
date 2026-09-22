@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Explorer Dashboard</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>Get Started — Mlue DSA E-Commerce Lab</title>
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Dedicated Top Navigation Bar -->
+  <!-- Global Navigation -->
   <header class="app-header">
     <nav class="navbar">
       <div class="nav-brand">
@@ -19,7 +19,7 @@
             <rect width="340" height="312" fill="url(#pattern0_31_3)"/>
             <defs>
               <pattern id="pattern0_31_3" patternContentUnits="objectBoundingBox" width="1" height="1">
-              <use xlink:href="#image0_31_3" transform="scale(0.00294118 0.00320513)"/>
+                <use xlink:href="#image0_31_3" transform="scale(0.00294118 0.00320513)"/>
               </pattern>
               <image id="image0_31_3" width="340" height="312" preserveAspectRatio="none" xlink:href="icons/logo.png"/> 
             </defs>
@@ -28,340 +28,181 @@
         <span class="brand-title">Mlue</span>
       </div>
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="challenges.html" class="nav-link">Challenges</a></li>
+        <li><a href="get-started.html" class="nav-link active">Home</a></li>
+        <li><a href="index.html" class="nav-link">Challenges</a></li>
         <li><a href="coreConcept.html" class="nav-link">Core CS Concepts</a></li>
         <li><a href="index1.html" class="nav-link">Individual DSA Tasks</a></li>
         <li><a href="help.html" class="nav-link">Help</a></li>
       </ul>
       <div class="nav-actions">
-        <button id="cart-summary-btn" class="nav-action-btn" aria-label="Cart">
-          🛒
-        </button>
+        <a href="index1.html" class="btn-primary get-started-cta-nav">Launch →</a>
       </div>
     </nav>
   </header>
 
-  <main class="main-content">
-    <!-- Dedicated Challenge Switcher Bar -->
-    <aside class="challenge-sidebar">
-      <div class="challenge-switcher-header">
-        <span class="switcher-label">DSA Tasks</span>
-        <span class="progress-pill">1 / 10</span>
+  <!-- Main Get Started Content Container -->
+  <main class="landing-container">
+    <!-- Hero Section -->
+    <section class="hero-card">
+      <div class="hero-badge">Production DSA Lab</div>
+      <h1 class="hero-title">Bridging Core Data Structures with Real-World E-Commerce UI</h1>
+      <p class="hero-subtitle">
+        Mlue is an interactive algorithmic dashboard built with zero external UI frameworks or utility libraries. Explore how foundational computer science principles—from Min-Heaps and Trie structures to Dijkstra's routing and dynamic knapsacks—power modern web applications.
+      </p>
+      <div class="hero-cta-group">
+        <a class="btn-primary hero-btn" style="pointer-events: none;">Explore Live Workspace →</a>
+        <a href="#challenges-overview" class="btn-secondary hero-btn">View All 10 Challenges</a>
       </div>
-      <div class="challenge-tabs" role="tablist" aria-label="Challenge Selectors">
-        <button class="challenge-pill active" role="tab" aria-selected="true" data-target="challenge-1">
-          <span class="pill-number">01</span>
-          <span class="pill-title">Price Finder</span>
-        </button>
-        <button class="challenge-pill" role="tab" aria-selected="false" data-target="challenge-2">
-          <span class="pill-number">02</span>
-          <span class="pill-title">Top K Popular</span>
-        </button>
-        <button class="challenge-pill" role="tab" aria-selected="false" data-target="challenge-3">
-          <span class="pill-number">03</span>
-          <span class="pill-title">Recently Viewed</span>
-        </button>
-        <button class="challenge-pill" role="tab" aria-selected="false" data-target="challenge-4">
-          <span class="pill-number">04</span>
-          <span class="pill-title">Undo/Redo Cart</span>
-        </button>
-        <button class="challenge-pill" role="tab" aria-selected="false" data-target="challenge-5">
-          <span class="pill-number">05</span>
-          <span class="pill-title">Recommendations</span>
-        </button>
-        <button class="challenge-pill" role="tab" aria-selected="false" data-target="challenge-6">
-          <span class="pill-number">06</span>
-          <span class="pill-title">Inventory Range</span>
-        </button>
-        <button class="challenge-pill" role="tab" aria-selected="false" data-target="challenge-7">
-          <span class="pill-number">07</span>
-          <span class="pill-title">Autocomplete</span>
-        </button>
-        <button class="challenge-pill" role="tab" aria-selected="false" data-target="challenge-8">
-          <span class="pill-number">08</span>
-          <span class="pill-title">Delivery Route</span>
-        </button>
-        <button class="challenge-pill" role="tab" aria-selected="false" data-target="challenge-9">
-          <span class="pill-number">09</span>
-          <span class="pill-title">Bundle Checker</span>
-        </button>
-        <button class="challenge-pill" role="tab" aria-selected="false" data-target="challenge-10">
-          <span class="pill-number">10</span>
-          <span class="pill-title">Warehouse Knapsack</span>
-        </button>
+      <div class="hero-stats-row">
+        <div class="stat-item">
+          <span class="stat-num">10</span>
+          <span class="stat-label">Algorithmic Tasks</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">0</span>
+          <span class="stat-label">External Dependencies</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Vanilla HTML/CSS/JS</span>
+        </div>
       </div>
-    </aside>
+    </section>
 
-    <!-- Workspace Container -->
-    <div class="workspace-area">
-      <!-- Challenge 1 Section -->
-      <!-- Example inside #challenge-1 in index.html -->
-      <section id="challenge-1" class="challenge-panel" role="tabpanel">
-        <header class="panel-header">
-          <div>
-            <h2>Smart Price Finder</h2>
-            <p class="panel-desc">Locates products closest to a target budget using Binary Search.</p>
+    <!-- Project Engineering Rules / Methodologies -->
+    <section class="info-section">
+      <div class="section-heading-wrap">
+        <h2>Engineering Principles</h2>
+        <p>The standard development workflow applied across every challenge in the system.</p>
+      </div>
+
+      <div class="principles-grid">
+        <article class="principle-card">
+          <div class="principle-num">01</div>
+          <h3>UI & DOM First</h3>
+          <p>Every problem starts with real semantic DOM structure and state flow before algorithmic optimization takes place.</p>
+        </article>
+        <article class="principle-card">
+          <div class="principle-num">02</div>
+          <h3>Zero Frameworks</h3>
+          <p>Strictly vanilla ES6+, native CSS variables, and clean DOM manipulation to directly observe browser performance.</p>
+        </article>
+        <article class="principle-card">
+          <div class="principle-num">03</div>
+          <h3>Documented Complexity</h3>
+          <p>Each feature compares the baseline approach with its optimized time ($O$) and space complexity guarantees.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Comprehensive Roadmap of All 10 Challenges -->
+    <section id="challenges-overview" class="info-section">
+      <div class="section-heading-wrap">
+        <h2>The 10 Laboratory Challenges</h2>
+        <p>A structured curriculum scaling from elementary lookups to graph algorithms and dynamic programming.</p>
+      </div>
+
+      <div class="challenge-preview-grid">
+        <div class="preview-card">
+          <div class="preview-top">
+            <span class="preview-index">01</span>
+            <span class="preview-badge">Binary Search</span>
           </div>
-          <span class="complexity-badge">O(log N) Lookup</span>
-        </header>
-
-        <!-- Clean Expandable Explanation Section -->
-        <details class="dsa-explanation-card">
-          <summary class="explanation-summary">
-            <span class="summary-left">
-              <span class="info-icon">💡</span>
-              <strong>How It Works & Algorithm Details</strong>
-            </span>
-            <span class="toggle-indicator">▼</span>
-          </summary>
-
-          <div class="explanation-content">
-            <div class="explanation-grid">
-              <div class="explanation-block">
-                <h4>Core Concept</h4>
-                <p>
-                  Instead of scanning every product linearly, we pre-sort the catalog by price once.
-                  A binary search then pinpoints the exact or closest insertion index in logarithmic time,
-                  expanding two pointers outward to extract the <em>K</em> closest results.
-                </p>
-              </div>
-
-              <div class="explanation-block">
-                <h4>Data Structure</h4>
-                <p><strong>Sorted Array:</strong> Contiguous memory enables $O(1)$ random access, making binary search possible.</p>
-              </div>
-            </div>
-
-            <!-- Complexity breakdown (Requirement from Rule 3) -->
-            <div class="complexity-table-wrapper">
-              <table class="complexity-table">
-                <thead>
-                  <tr>
-                    <th>Approach</th>
-                    <th>Time Complexity</th>
-                    <th>Space Complexity</th>
-                    <th>Notes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Initial (Linear Scan)</strong></td>
-                    <td><code>O(N)</code></td>
-                    <td><code>O(1)</code></td>
-                    <td>Computes absolute differences across all $N$ products every search.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Optimized (Binary Search)</strong></td>
-                    <td><code>O(log N + K)</code></td>
-                    <td><code>O(N)</code></td>
-                    <td>One-time <code>O(N log N)</code> sort, then sub-millisecond search per query.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </details>
-
-        <!-- Existing Feature UI -->
-        <div class="search-bar-card">
-          <label for="target-price">Target Price (₹):</label>
-          <div class="input-inline">
-            <input type="number" id="target-price" placeholder="e.g. 70000" />
-            <button id="search-price-btn" class="btn-primary">Search</button>
-          </div>
+          <h4>Smart Price Finder</h4>
+          <p>Pinpoints the closest budget items within a sorted catalog in $O(\log N)$ time using dual-pointer expansion.</p>
         </div>
 
-        <div id="price-results-container" class="product-grid"></div>
-      </section>
-
-      <!-- Challenge 2 Section inside .workspace-area -->
-      <section id="challenge-2" class="challenge-panel hidden" role="tabpanel">
-        <header class="panel-header">
-          <div>
-            <h2>🔥 Top K Popular Products</h2>
-            <p class="panel-desc">Calculates popularity based on rating × reviews using a Min-Heap of size K.</p>
+        <div class="preview-card">
+          <div class="preview-top">
+            <span class="preview-index">02</span>
+            <span class="preview-badge">Min-Heap</span>
           </div>
-          <span class="complexity-badge">O(N log K)</span>
-        </header>
-
-        <!-- Explanation Card -->
-        <details class="dsa-explanation-card">
-          <summary class="explanation-summary">
-            <span class="summary-left">
-              <span class="info-icon">💡</span>
-              <strong>How It Works & Algorithm Details</strong>
-            </span>
-            <span class="toggle-indicator">▼</span>
-          </summary>
-          <div class="explanation-content">
-            <div class="explanation-grid">
-              <div class="explanation-block">
-                <h4>Core Concept</h4>
-                <p>
-                  When $K \ll N$, a full array sort is wasteful. By maintaining a Min-Heap of size $K$, the smallest of our current top candidates stays at the root. We only swap if a new product beats the root, discarding lower-scoring items in logarithmic time.
-                </p>
-              </div>
-              <div class="explanation-block">
-                <h4>Data Structure</h4>
-                <p><strong>Min-Heap (Binary Heap):</strong> $O(1)$ peek at minimum of top $K$, and $O(\log K)$ insert/delete.</p>
-              </div>
-            </div>
-            <div class="complexity-table-wrapper">
-              <table class="complexity-table">
-                <thead>
-                  <tr>
-                    <th>Approach</th>
-                    <th>Time Complexity</th>
-                    <th>Space Complexity</th>
-                    <th>Notes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Full Sort</strong></td>
-                    <td><code>O(N log N)</code></td>
-                    <td><code>O(N)</code></td>
-                    <td>Sorts entire catalog even if only top 3 items are needed.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Min-Heap (Size K)</strong></td>
-                    <td><code>O(N log K)</code></td>
-                    <td><code>O(K)</code></td>
-                    <td>Optimal when $K$ is small. Memory never exceeds $K$ items.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </details>
-
-        <!-- Feature Controls -->
-        <div class="search-bar-card">
-          <label for="top-k-select"><strong>Show Top:</strong></label>
-          <div class="input-inline">
-            <select id="top-k-select" class="dropdown-select">
-              <option value="3">Top 3 Products</option>
-              <option value="5">Top 5 Products</option>
-              <option value="10">Top 10 Products</option>
-            </select>
-            <button id="show-popular-btn" class="btn-primary">Show Products</button>
-          </div>
+          <h4>Top K Popular Products</h4>
+          <p>Ranks catalog items by reviews and ratings in $O(N \log K)$ without computing a full wasteful catalog sort.</p>
         </div>
 
-        <div id="popular-results-container" class="product-grid"></div>
-      </section>
-
-      <!-- Challenge 5 Section inside .workspace-area -->
-      <section id="challenge-5" class="challenge-panel hidden" role="tabpanel">
-        <header class="panel-header">
-          <div>
-            <h2>🤝 Personalized Recommendations</h2>
-            <p class="panel-desc">Recommends products frequently co-viewed by other users using co-occurrence graphs.</p>
+        <div class="preview-card">
+          <div class="preview-top">
+            <span class="preview-index">03</span>
+            <span class="preview-badge">LRU Cache</span>
           </div>
-          <span class="complexity-badge">O(U · P) Map</span>
-        </header>
-
-        <!-- Explanation Card -->
-        <details class="dsa-explanation-card">
-          <summary class="explanation-summary">
-            <span class="summary-left">
-              <span class="info-icon">💡</span>
-              <strong>How It Works & Algorithm Details</strong>
-            </span>
-            <span class="toggle-indicator">▼</span>
-          </summary>
-          <div class="explanation-content">
-            <div class="explanation-grid">
-              <div class="explanation-block">
-                <h4>Core Concept</h4>
-                <p>
-                  Uses item-to-item collaborative filtering. For a selected product, we filter simulated browsing sessions to find users who viewed it, aggregate the co-occurrence counts of all other items they browsed, and rank the top results.
-                </p>
-              </div>
-              <div class="explanation-block">
-                <h4>Data Structure</h4>
-                <p><strong>Hash Map (Frequency Table):</strong> Enables $O(1)$ updates to co-occurrence counts across user histories.</p>
-              </div>
-            </div>
-            <div class="complexity-table-wrapper">
-              <table class="complexity-table">
-                <thead>
-                  <tr>
-                    <th>Approach</th>
-                    <th>Time Complexity</th>
-                    <th>Space Complexity</th>
-                    <th>Notes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Bipartite Traversal</strong></td>
-                    <td><code>O(U · P)</code></td>
-                    <td><code>O(M)</code></td>
-                    <td>Traverses matching sessions and tabulates frequency of candidate items.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Top K Extraction</strong></td>
-                    <td><code>O(M log K)</code></td>
-                    <td><code>O(M)</code></td>
-                    <td>Sorts or extracts the highest-frequency co-viewed products.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </details>
-
-        <!-- Feature Controls with Searchable Dropdown -->
-        <div class="search-bar-card">
-          <label for="rec-search-input"><strong>Currently Viewing:</strong></label>
-          <div class="input-inline">
-            <!-- Custom Searchable Combobox Container -->
-            <div class="searchable-select-wrapper">
-              <input
-                type="text"
-                id="rec-search-input"
-                class="searchable-input"
-                placeholder="Type to search product (e.g. MacBook, Mouse)..."
-                autocomplete="off"
-              />
-              <!-- Hidden input holding the actual selected product ID -->
-              <input type="hidden" id="rec-selected-id" value="" />
-              
-              <!-- Dropdown list populated & filtered dynamically -->
-              <ul id="rec-dropdown-list" class="searchable-dropdown-list hidden" role="listbox"></ul>
-            </div>
-
-            <button id="get-recommendations-btn" class="btn-primary">Get Recommendations</button>
-          </div>
+          <h4>Recently Viewed</h4>
+          <p>Maintains an ordered browsing cache using a Hash Map combined with a Doubly Linked List for $O(1)$ operations.</p>
         </div>
 
-        <div id="recommendations-results-container" class="product-grid"></div>
-      </section>
-
-      <!-- Reusable Fallback Section for unbuilt challenges -->
-      <section id="challenge-placeholder" class="challenge-panel hidden" role="tabpanel">
-        <div class="empty-state-card">
-          <div class="empty-state-icon">🚧</div>
-            <h3 id="placeholder-title">Feature Under Construction</h3>
-            <p id="placeholder-message">
-              This challenge hasn't been implemented yet. Please be patient while we build out the feature and its underlying data structure!
-            </p>
-          <div class="empty-state-meta">
-              <span id="placeholder-target-badge" class="meta-tag">challenge-x</span>
-              <span class="meta-tag">Pending Implementation</span>
+        <div class="preview-card">
+          <div class="preview-top">
+            <span class="preview-index">04</span>
+            <span class="preview-badge">Dual Stacks</span>
           </div>
+          <h4>Undo / Redo Cart</h4>
+          <p>Provides reversible cart modifications using dual execution history stacks to restore past cart states.</p>
         </div>
-      </section>
-    </div>
+
+        <div class="preview-card">
+          <div class="preview-top">
+            <span class="preview-index">05</span>
+            <span class="preview-badge">Hash Maps / Graph</span>
+          </div>
+          <h4>Personalized Recommendations</h4>
+          <p>Traverses co-occurrence browsing graphs to serve related items based on overlapping visitor histories.</p>
+        </div>
+
+        <div class="preview-card">
+          <div class="preview-top">
+            <span class="preview-index">06</span>
+            <span class="preview-badge">Prefix Sums / Trees</span>
+          </div>
+          <h4>Inventory Range Dashboard</h4>
+          <p>Executes repeated aggregate inventory value lookups across flexible price bounds without full rescans.</p>
+        </div>
+
+        <div class="preview-card">
+          <div class="preview-top">
+            <span class="preview-index">07</span>
+            <span class="preview-badge">Trie (Prefix Tree)</span>
+          </div>
+          <h4>Product Autocomplete</h4>
+          <p>Delivers real-time keystroke suggestions across titles, brands, and tags with fast prefix lookups.</p>
+        </div>
+
+        <div class="preview-card">
+          <div class="preview-top">
+            <span class="preview-index">08</span>
+            <span class="preview-badge">Dijkstra's Algorithm</span>
+          </div>
+          <h4>Smart Delivery Route</h4>
+          <p>Finds the shortest weighted paths across hubs, warehouses, and customer delivery destinations.</p>
+        </div>
+
+        <div class="preview-card">
+          <div class="preview-top">
+            <span class="preview-index">09</span>
+            <span class="preview-badge">Topological Sort</span>
+          </div>
+          <h4>Bundle Dependency Checker</h4>
+          <p>Detects circular dependencies and validates safe compilation ordering across prerequisite packages.</p>
+        </div>
+
+        <div class="preview-card">
+          <div class="preview-top">
+            <span class="preview-index">10</span>
+            <span class="preview-badge">Dynamic Programming</span>
+          </div>
+          <h4>Warehouse Knapsack</h4>
+          <p>Selects value-maximizing freight packages within strict weight capacities using 0/1 knapsack memoization.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Final CTA Banner -->
+    <section class="banner-cta">
+      <h2>Ready to Test the Algorithms?</h2>
+      <p>Jump directly into the workspace, adjust data inputs, run benchmarks, and examine complexity breakdowns.</p>
+      <a href="index1.html" class="btn-primary hero-btn">Launch Dashboard Workspace</a>
+    </section>
   </main>
-
-  <script src="js/data.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/features/priceFinder.js"></script>
-  <script src="js/features/popularProducts.js"></script>
-  <script src="js/features/recommendations.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>
