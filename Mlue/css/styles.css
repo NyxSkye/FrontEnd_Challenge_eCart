@@ -133,6 +133,7 @@ body {
 .nav-link:hover,
 .nav-link.active {
   color: var(--button);
+  transition: all 0.15s ease-in-out;
 }
 
 /* Right-side cart button & notification badge */
