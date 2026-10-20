@@ -63,6 +63,8 @@ const WarehouseOptimizer = {
       }
     }
 
+    selectedProducts.sort((a, b) => b.weight - a.weight);
+
     const totalWeight = selectedProducts.reduce((sum, item) => sum + item.weight, 0);
     const totalValue = dp[N][W];
     const remainingCapacity = W - totalWeight;
