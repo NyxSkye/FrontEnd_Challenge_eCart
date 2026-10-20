@@ -340,6 +340,84 @@
         <div id="recommendations-results-container" class="product-grid"></div>
       </section>
 
+      <!-- Challenge 10 Section -->
+      <section id="challenge-10" class="challenge-panel hidden" role="tabpanel">
+        <header class="panel-header">
+          <div>
+            <h2>📦 Warehouse Capacity Optimizer</h2>
+            <p class="panel-desc">Maximizes total cargo value under weight constraints using 0/1 Knapsack Dynamic Programming.</p>
+          </div>
+          <span class="complexity-badge">O(N · W) DP</span>
+        </header>
+
+        <!-- Explanation Card -->
+        <details class="dsa-explanation-card">
+          <summary class="explanation-summary">
+            <span class="summary-left">
+              <span class="info-icon">💡</span>
+              <strong>How It Works & Algorithm Details</strong>
+            </span>
+            <span class="toggle-indicator">▼</span>
+          </summary>
+          <div class="explanation-content">
+            <div class="explanation-grid">
+              <div class="explanation-block">
+                <h4>Core Concept</h4>
+                <p>
+                  For every product, we make a binary choice: either include it (consuming weight and adding value) or leave it. By building an $(N+1) \times (W+1)$ DP table, optimal sub-structure is stored and reused.
+                </p>
+              </div>
+              <div class="explanation-block">
+                <h4>Data Structure</h4>
+                <p><strong>2D Array / Dynamic Programming Table:</strong> Solves overlapping subproblems in pseudo-polynomial time.</p>
+              </div>
+            </div>
+            <div class="complexity-table-wrapper">
+              <table class="complexity-table">
+                <thead>
+                  <tr>
+                    <th>Approach</th>
+                    <th>Time Complexity</th>
+                    <th>Space Complexity</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Brute Force Recursion</strong></td>
+                    <td><code>O(2^N)</code></td>
+                    <td><code>O(N)</code></td>
+                    <td>Evaluates every possible subset of items. Infeasible for large catalogs.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2D Dynamic Programming</strong></td>
+                    <td><code>O(N · W)</code></td>
+                    <td><code>O(N · W)</code></td>
+                    <td>Optimal solution with exact subset reconstruction via backtracking.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <!-- Feature Controls -->
+        <div class="search-bar-card">
+          <label for="warehouse-capacity-input"><strong>Warehouse Capacity (kg):</strong></label>
+          <div class="input-inline">
+            <input type="number" id="warehouse-capacity-input" min="1" max="100" value="10" placeholder="e.g. 10" />
+            <button id="optimize-capacity-btn" class="btn-primary">Optimize Cargo</button>
+          </div>
+        </div>
+
+        <!-- Summary Cards Container -->
+        <div id="knapsack-summary-container" class="knapsack-metrics-grid"></div>
+
+        <!-- Selected Products Grid -->
+        <h3 class="subsection-title">Optimal Products Manifest</h3>
+        <div id="knapsack-results-container" class="product-grid"></div>
+      </section>
+
       <!-- Reusable Fallback Section for unbuilt challenges -->
       <section id="challenge-placeholder" class="challenge-panel hidden" role="tabpanel">
         <div class="empty-state-card">
@@ -362,6 +440,7 @@
   <script src="js/features/priceFinder.js"></script>
   <script src="js/features/popularProducts.js"></script>
   <script src="js/features/recommendations.js"></script>
+  <script src="js/features/warehouseOptimizer.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

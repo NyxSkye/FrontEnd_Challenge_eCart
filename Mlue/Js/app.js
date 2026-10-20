@@ -63,17 +63,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Call the feature method
     const closestItems = PriceFinder.getClosestProducts(targetPrice, 3);
-
-    // Render results to the grid container
     UI.renderProducts("price-results-container", closestItems);
   }
 
   if (searchPriceBtn && targetPriceInput) {
     searchPriceBtn.addEventListener("click", executePriceSearch);
 
-    // Allow pressing "Enter" inside the input
     targetPriceInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         executePriceSearch();
@@ -82,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- Challenge 2: Popular Products Controller ---
-
   const topKSelect = document.getElementById("top-k-select");
   const showPopularBtn = document.getElementById("show-popular-btn");
 
@@ -93,8 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
     UI.renderPopularProducts("popular-results-container", popularItems);
   }
 
-  // 1. Click button to show
-  // Only trigger when the button is explicitly clicked
   if (showPopularBtn) {
     showPopularBtn.addEventListener("click", loadPopularProducts);
   }
@@ -107,13 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let allRecProductsList = [];
 
-  // Populate the cache of products
   function initSearchableRecDropdown() {
     if (allRecProductsList.length > 0) return;
     allRecProductsList = RecommendationEngine.getAllProductsList();
   }
 
-  // Render filtered dropdown options
   function renderDropdownOptions(searchTerm = "") {
     if (!recDropdownList) return;
     recDropdownList.innerHTML = "";
@@ -154,14 +145,12 @@ document.addEventListener("DOMContentLoaded", () => {
     recDropdownList.classList.remove("hidden");
   }
 
-  // Selection handler
   function selectProduct(product) {
     recSelectedId.value = product.id;
     recSearchInput.value = `${product.name} (₹${product.price.toLocaleString("en-IN")})`;
     recDropdownList.classList.add("hidden");
   }
 
-  // Live typing filter
   if (recSearchInput) {
     recSearchInput.addEventListener("focus", () => {
       renderDropdownOptions(recSearchInput.value);
@@ -172,7 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Close the floating list when clicking outside
   document.addEventListener("click", (e) => {
     if (recSearchInput && recDropdownList) {
       if (!recSearchInput.contains(e.target) && !recDropdownList.contains(e.target)) {
@@ -181,7 +169,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Fetch recommendations handler
   function handleGetRecommendations() {
     const targetId = recSelectedId ? recSelectedId.value : "";
     if (!targetId) {
@@ -197,11 +184,50 @@ document.addEventListener("DOMContentLoaded", () => {
     getRecsBtn.addEventListener("click", handleGetRecommendations);
   }
 
-  // Initialize when user navigates to the tab
   const challenge5Pill = document.querySelector('[data-target="challenge-5"]');
   if (challenge5Pill) {
     challenge5Pill.addEventListener("click", () => {
       initSearchableRecDropdown();
+    });
+  }
+
+  // --- Challenge 10: Warehouse Knapsack Controller ---
+  const capacityInput = document.getElementById("warehouse-capacity-input");
+  const optimizeCapacityBtn = document.getElementById("optimize-capacity-btn");
+
+  function runWarehouseOptimization() {
+    if (!capacityInput) return;
+    const rawCapacity = capacityInput.value.trim();
+    if (!rawCapacity) {
+      alert("Please enter a warehouse capacity.");
+      return;
+    }
+
+    const capacity = parseInt(rawCapacity, 10);
+    if (isNaN(capacity) || capacity <= 0) {
+      alert("Please enter a valid positive capacity in kg.");
+      return;
+    }
+
+    const candidateProducts = WarehouseOptimizer.getAllCandidateProducts();
+    const result = WarehouseOptimizer.solveKnapsack(candidateProducts, capacity);
+
+    UI.renderKnapsackResults(
+      "knapsack-summary-container",
+      "knapsack-results-container",
+      result
+    );
+  }
+
+  if (optimizeCapacityBtn) {
+    optimizeCapacityBtn.addEventListener("click", runWarehouseOptimization);
+  }
+
+  if (capacityInput) {
+    capacityInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        runWarehouseOptimization();
+      }
     });
   }
 });

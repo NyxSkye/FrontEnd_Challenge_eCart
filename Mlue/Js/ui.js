@@ -60,7 +60,7 @@ const UI = {
     });
   },
 
-  //Challenge 5: Recommendations Controller
+  // Challenge 5: Recommendations Controller
   createRecommendationCard(product) {
     const card = document.createElement("article");
     card.className = "product-card rec-card";
@@ -87,6 +87,52 @@ const UI = {
 
     products.forEach((item) => {
       container.appendChild(this.createRecommendationCard(item));
+    });
+  },
+
+  // Challenge 10: Warehouse Optimizer Controller
+  renderKnapsackResults(summaryContainerId, listContainerId, result) {
+    const summaryEl = document.getElementById(summaryContainerId);
+    const listEl = document.getElementById(listContainerId);
+
+    if (!summaryEl || !listEl) return;
+
+    summaryEl.innerHTML = `
+      <div class="knapsack-stat-card">
+        <span class="stat-label">Total Value</span>
+        <strong class="stat-val text-primary">₹${result.totalValue.toLocaleString("en-IN")}</strong>
+      </div>
+      <div class="knapsack-stat-card">
+        <span class="stat-label">Total Weight</span>
+        <strong class="stat-val">${result.totalWeight} / ${result.capacity} kg</strong>
+      </div>
+      <div class="knapsack-stat-card">
+        <span class="stat-label">Remaining Space</span>
+        <strong class="stat-val">${result.remainingCapacity} kg</strong>
+      </div>
+      <div class="knapsack-stat-card">
+        <span class="stat-label">Selected Items</span>
+        <strong class="stat-val">${result.selectedProducts.length}</strong>
+      </div>
+    `;
+
+    listEl.innerHTML = "";
+    if (result.selectedProducts.length === 0) {
+      listEl.innerHTML = `<p class="empty-msg">No items could fit into the specified capacity.</p>`;
+      return;
+    }
+
+    result.selectedProducts.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "product-card knapsack-item-card";
+      card.innerHTML = `
+        <div class="knapsack-badge">✓ Selected</div>
+        <h3>${item.name}</h3>
+        <p class="brand">Brand: ${item.brand}</p>
+        <p class="price">Value: ₹${item.value.toLocaleString("en-IN")}</p>
+        <p class="weight-metric">⚖️ Weight: <strong>${item.weight} kg</strong></p>
+      `;
+      listEl.appendChild(card);
     });
   }
 };
