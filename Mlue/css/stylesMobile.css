@@ -1,0 +1,71 @@
+@media (max-width: 860px) {
+  .navbar {
+    flex-wrap: wrap;
+    row-gap: 0.75rem;
+  }
+
+  .nav-links {
+    order: 3;
+    flex: 1 0 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.65rem 1rem;
+  }
+
+  .nav-actions {
+    margin-left: auto;
+  }
+
+  .main-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .challenge-sidebar,
+  .workspace-area {
+    min-width: 0;
+  }
+
+  .challenge-tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .explanation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0.7rem 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.82rem;
+  }
+
+  .main-content {
+    margin: 1rem auto;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .workspace-area {
+    min-width: 0;
+    padding: 1rem;
+  }
+
+  .panel-header {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .input-inline {
+    flex-wrap: wrap;
+  }
+
+  .input-inline input {
+    min-width: 0;
+  }
+}

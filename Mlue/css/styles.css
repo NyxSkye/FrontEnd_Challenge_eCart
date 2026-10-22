@@ -699,22 +699,3 @@ body {
 .hidden {
   display: none !important;
 }
-
-/* --------------------------------------------------------------------------
-   10. Media Queries / Responsiveness
-   -------------------------------------------------------------------------- */
-@media (max-width: 860px) {
-  .main-content {
-    grid-template-columns: 1fr;
-  }
-
-  .challenge-tabs {
-    flex-direction: row;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-  }
-
-  .explanation-grid {
-    grid-template-columns: 1fr;
-  }
-}
