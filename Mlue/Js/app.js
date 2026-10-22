@@ -194,6 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Challenge 10: Warehouse Knapsack Controller ---
   const capacityInput = document.getElementById("warehouse-capacity-input");
   const optimizeCapacityBtn = document.getElementById("optimize-capacity-btn");
+  const manifestTitle = document.getElementById("knapsack-manifest-title");
 
   function runWarehouseOptimization() {
     if (!capacityInput) return;
@@ -217,6 +218,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "knapsack-results-container",
       result
     );
+    if (manifestTitle) {
+      manifestTitle.classList.remove("hidden");
+    }
   }
 
   if (optimizeCapacityBtn) {
