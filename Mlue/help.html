@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="User manual, usage instructions, and help for the Mlue e-commerce DSA dashboard." />
+  <title>Help &amp; User Manual — Mlue</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <span class="brand-icon">
+          <svg width="34" height="31.2" viewBox="0 0 340 312" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect width="340" height="312" fill="url(#pattern0_31_3)"/>
+            <defs>
+              <pattern id="pattern0_31_3" patternContentUnits="objectBoundingBox" width="1" height="1">
+                <use xlink:href="#image0_31_3" transform="scale(0.00294118 0.00320513)"/>
+              </pattern>
+              <image id="image0_31_3" width="340" height="312" preserveAspectRatio="none" xlink:href="icons/logo.png"/>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-title">Mlue</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#challenges-overview" class="nav-link">Challenges</a></li>
+        <li><a href="coreConcept.html" class="nav-link">Core CS Concepts</a></li>
+        <li><a href="index1.html" class="nav-link">Individual DSA Tasks</a></li>
+        <li><a href="help.html" class="nav-link active" aria-current="page">Help</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="index1.html" class="btn-primary get-started-cta-nav">Launch →</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="info-page">
+    <section class="info-hero">
+      <span class="hero-badge">Help center</span>
+      <h1>User manual &amp; help</h1>
+      <p>Use this guide to navigate the Mlue challenge dashboard, run its working features, and understand what the sample results represent.</p>
+    </section>
+
+    <section id="user-manual" class="info-section">
+      <div class="section-heading-wrap">
+        <h2>User manual</h2>
+        <p>Get started with the interactive workspace.</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-card">
+          <h2>1. Open the workspace</h2>
+          <p>Choose <a href="index1.html">Individual DSA Tasks</a> in the navigation or select Launch. The task list is on the left; the selected task's controls and results appear in the main panel.</p>
+        </article>
+        <article class="info-card">
+          <h2>2. Select a challenge</h2>
+          <p>Use the numbered task buttons to switch panels. The progress indicator shows the selected task number out of 10. Challenges without a working panel currently display an Under Construction message.</p>
+        </article>
+        <article class="info-card">
+          <h2>3. Run a challenge</h2>
+          <ul>
+            <li><strong>Price Finder:</strong> enter a positive target price in rupees and select Search (or press Enter) to see the three closest products.</li>
+            <li><strong>Top K Popular:</strong> choose how many products to show, then select Show Products.</li>
+            <li><strong>Recommendations:</strong> type in the product field, choose an option from the suggestions, then select Get Recommendations.</li>
+            <li><strong>Warehouse Optimizer:</strong> enter a positive capacity in kilograms, then select Optimize Cargo (or press Enter).</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h2>4. Read the algorithm notes</h2>
+          <p>On implemented panels, expand “How It Works &amp; Algorithm Details” to read the data-structure explanation and complexity comparison. Use <a href="coreConcept.html">Core CS Concepts</a> for a guide to all ten roadmap topics.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="help-data" class="info-section">
+      <div class="section-heading-wrap">
+        <h2>Help &amp; frequently asked questions</h2>
+        <p>Notes about inputs, data, results, and features that are not yet available.</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-card">
+          <h2>Why does a task show “Under Construction”?</h2>
+          <p>The current workspace implements challenges 1, 2, 5, and 10. The other numbered tasks are roadmap entries and do not yet have interactive implementations.</p>
+        </article>
+        <article class="info-card">
+          <h2>Where do recommendations come from?</h2>
+          <p>Recommendations are calculated from a small set of simulated browsing sessions included with the project. They demonstrate item-to-item co-view counting and are not live or personalized account data.</p>
+        </article>
+        <article class="info-card">
+          <h2>How are warehouse weights calculated?</h2>
+          <p>The product catalog does not provide shipping weights. The optimizer assigns estimated integer weights using product category and, for some accessories, product names. The displayed values are illustrative.</p>
+        </article>
+        <article class="info-card">
+          <h2>Why are my results empty?</h2>
+          <p>Check that the input is a valid positive number, and for recommendations make sure you selected a suggestion rather than only typing a product name. A product with no matching sample history can legitimately return no recommendations.</p>
+        </article>
+        <article class="info-card">
+          <h2>Can I undo or redo cart changes?</h2>
+          <p>Undo/Redo Cart is listed in the project roadmap, but it is not currently implemented as an interactive dashboard feature.</p>
+        </article>
+        <article class="info-card">
+          <h2>Does this dashboard need an account or server?</h2>
+          <p>The challenge pages are a static front-end demonstration built with HTML, CSS, and JavaScript. They use the local sample catalog and do not require a sign-in or server-side account.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="info-card info-callout">
+      <h2>Still need a pointer?</h2>
+      <p>Read the <a href="coreConcept.html">algorithm explanations</a> or return to the <a href="index1.html">challenge workspace</a>. No separate support contact is configured in this project.</p>
+    </section>
+  </main>
+</body>
+</html>

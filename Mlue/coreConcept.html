@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn how data structures and algorithms support the Mlue e-commerce challenge dashboard." />
+  <title>Core CS Concepts — Mlue</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <span class="brand-icon">
+          <svg width="34" height="31.2" viewBox="0 0 340 312" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect width="340" height="312" fill="url(#pattern0_31_3)"/>
+            <defs>
+              <pattern id="pattern0_31_3" patternContentUnits="objectBoundingBox" width="1" height="1">
+                <use xlink:href="#image0_31_3" transform="scale(0.00294118 0.00320513)"/>
+              </pattern>
+              <image id="image0_31_3" width="340" height="312" preserveAspectRatio="none" xlink:href="icons/logo.png"/>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-title">Mlue</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#challenges-overview" class="nav-link">Challenges</a></li>
+        <li><a href="coreConcept.html" class="nav-link active" aria-current="page">Core CS Concepts</a></li>
+        <li><a href="index1.html" class="nav-link">Individual DSA Tasks</a></li>
+        <li><a href="help.html" class="nav-link">Help</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="index1.html" class="btn-primary get-started-cta-nav">Launch →</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="info-page">
+    <section class="info-hero">
+      <span class="hero-badge">Learn the algorithms</span>
+      <h1>Core computer science concepts behind Mlue</h1>
+      <p>
+        Each challenge connects an e-commerce task to a data structure or algorithm.
+        The dashboard currently runs challenges 1, 2, 5, and 10. The remaining entries
+        describe the project roadmap and display an “Under Construction” panel in the workspace.
+      </p>
+    </section>
+
+    <section class="info-section">
+      <div class="section-heading-wrap">
+        <h2>Implemented in the dashboard</h2>
+        <p>These algorithms are connected to working controls and produce results in the workspace.</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-card concept-card">
+          <span class="concept-number">Challenge 01 · Searching</span>
+          <h2>Binary search and sorted arrays</h2>
+          <span class="status-tag">Implemented</span>
+          <p><strong>Problem:</strong> Find products closest to a target price without comparing every item on every search.</p>
+          <p><strong>How it works:</strong> The catalog is sorted once by price. Binary search narrows to the target's insertion point; two pointers then expand from the nearest price, choosing whichever side is closer until three products are collected.</p>
+          <p><strong>Cost:</strong> Initial sort is O(N log N); each query takes O(log N + K), where K is the number of results. The sorted copy uses O(N) space.</p>
+        </article>
+
+        <article class="info-card concept-card">
+          <span class="concept-number">Challenge 02 · Priority queues</span>
+          <h2>Min-heap for Top K</h2>
+          <span class="status-tag">Implemented</span>
+          <p><strong>Problem:</strong> Rank products by a popularity score without sorting the whole catalog.</p>
+          <p><strong>How it works:</strong> Popularity is rating × review count. A min-heap holds at most K candidates, keeping the least popular candidate at its root. A new product replaces the root only when its score is higher; the retained products are then returned in descending order.</p>
+          <p><strong>Cost:</strong> O(N log K) time and O(K) heap space, plus O(K log K) to drain and order the results.</p>
+        </article>
+
+        <article class="info-card concept-card">
+          <span class="concept-number">Challenge 05 · Hash maps and collaborative filtering</span>
+          <h2>Co-view frequency recommendations</h2>
+          <span class="status-tag">Implemented</span>
+          <p><strong>Problem:</strong> Suggest products that shoppers viewed alongside a selected product.</p>
+          <p><strong>How it works:</strong> The app finds simulated browsing sessions containing the selected item, counts every other product in those sessions with a hash map, and sorts candidates by co-view count. A second map resolves product IDs to product data.</p>
+          <p><strong>Cost:</strong> If H is the number of session-view entries and M is the number of distinct co-viewed products, the current scan and sort take O(H + M log M) time and O(M) additional space. The browsing histories are sample data.</p>
+        </article>
+
+        <article class="info-card concept-card">
+          <span class="concept-number">Challenge 10 · Optimization</span>
+          <h2>0/1 knapsack dynamic programming</h2>
+          <span class="status-tag">Implemented</span>
+          <p><strong>Problem:</strong> Choose products with the highest total value while staying within a warehouse weight limit.</p>
+          <p><strong>How it works:</strong> For each product and each capacity, a DP table compares leaving the item out with including it (if it fits). Backtracking through the table recovers the selected products. Each product can be selected at most once.</p>
+          <p><strong>Cost:</strong> O(N × W) time and space for N products and capacity W. Product weights are estimated by category/name; values use catalog prices.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="section-heading-wrap">
+        <h2>Roadmap concepts</h2>
+        <p>These topics are introduced on the home page, but their interactive implementations are not yet connected to the dashboard.</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-card concept-card">
+          <span class="concept-number">Challenge 03 · Cache design</span>
+          <h2>LRU cache: hash map + doubly linked list</h2>
+          <span class="status-tag">Roadmap · Not implemented</span>
+          <p>A hash map locates a cached product quickly, while a doubly linked list tracks recency. A product visit moves its node to the most-recent end; when capacity is reached, the least-recent node is evicted. Lookup, refresh, and eviction can each be O(1).</p>
+        </article>
+
+        <article class="info-card concept-card">
+          <span class="concept-number">Challenge 04 · State history</span>
+          <h2>Two stacks for undo and redo</h2>
+          <span class="status-tag">Roadmap · Not implemented</span>
+          <p>The undo stack stores prior cart states and the redo stack stores states reversed by an undo. Undo and redo move the current state between stacks; a new cart edit clears redo history. Push and pop are O(1), excluding the cost of copying a cart snapshot.</p>
+        </article>
+
+        <article class="info-card concept-card">
+          <span class="concept-number">Challenge 06 · Range queries</span>
+          <h2>Prefix sums and range data structures</h2>
+          <span class="status-tag">Roadmap · Not implemented</span>
+          <p>A prefix-sum array stores cumulative inventory values, so a static range total can be calculated by subtracting two prefix values in O(1) after O(N) preprocessing. If values must change frequently, a tree-based structure such as a segment tree supports updates and range queries in O(log N).</p>
+        </article>
+
+        <article class="info-card concept-card">
+          <span class="concept-number">Challenge 07 · Prefix search</span>
+          <h2>Trie (prefix tree)</h2>
+          <span class="status-tag">Roadmap · Not implemented</span>
+          <p>A trie stores product-name, brand, or tag characters along paths from the root. Searching follows the characters typed so far, then gathers matching products below that prefix node. Finding the prefix takes O(L) for a prefix of length L; output collection depends on the number of matches.</p>
+        </article>
+
+        <article class="info-card concept-card">
+          <span class="concept-number">Challenge 08 · Weighted graphs</span>
+          <h2>Dijkstra's shortest-path algorithm</h2>
+          <span class="status-tag">Roadmap · Not implemented</span>
+          <p>Warehouses and delivery hubs can be modeled as vertices, with route distances or costs as non-negative weighted edges. Dijkstra's algorithm repeatedly settles the nearest reachable vertex and relaxes its neighbors, tracking predecessors to reconstruct the best route. With a min-priority queue, the usual bound is O((V + E) log V).</p>
+        </article>
+
+        <article class="info-card concept-card">
+          <span class="concept-number">Challenge 09 · Dependency ordering</span>
+          <h2>Topological sort and cycle detection</h2>
+          <span class="status-tag">Roadmap · Not implemented</span>
+          <p>Represent each prerequisite as a directed edge in a dependency graph. A topological ordering lists each dependency before the item that requires it. Kahn's algorithm repeatedly removes zero-in-degree nodes; if nodes remain when no such node exists, the graph contains a cycle. The traversal takes O(V + E) time.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="info-card info-callout">
+      <h2>Try the working challenges</h2>
+      <p>Open the <a href="index1.html">Individual DSA Tasks</a> workspace to run the implemented price finder, popularity ranking, recommendations, and warehouse optimizer. For controls and usage guidance, see <a href="help.html">Help &amp; User Manual</a>.</p>
+    </section>
+  </main>
+</body>
+</html>

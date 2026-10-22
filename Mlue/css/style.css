@@ -268,6 +268,129 @@
   margin-bottom: 0.5rem;
 }
 
+#challenges-overview {
+  scroll-margin-top: 6rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. Help & Core Concepts Pages
+   -------------------------------------------------------------------------- */
+.info-page {
+  max-width: 1100px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1.5rem;
+  user-select: text;
+}
+
+.info-hero {
+  background: var(--white);
+  border: var(--surface-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-hero .hero-badge {
+  display: inline-block;
+}
+
+.info-hero h1 {
+  max-width: 800px;
+  font-size: 2rem;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.info-hero p,
+.info-card p,
+.info-card li {
+  color: var(--light-text);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.info-section {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 6rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.info-card {
+  background: var(--white);
+  border: var(--surface-border);
+  border-radius: var(--radius);
+  padding: 1.35rem;
+}
+
+.info-card h2,
+.info-card h3 {
+  color: var(--text);
+  font-size: 1.05rem;
+  margin-bottom: 0.55rem;
+}
+
+.info-card h2 {
+  font-size: 1.2rem;
+}
+
+.info-card ul,
+.info-card ol {
+  padding-left: 1.25rem;
+  margin-top: 0.55rem;
+}
+
+.info-card li + li {
+  margin-top: 0.35rem;
+}
+
+.concept-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.concept-card h2 {
+  margin: 0;
+}
+
+.concept-number,
+.status-tag {
+  color: var(--button);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.status-tag {
+  align-self: flex-start;
+  background: var(--button-bg);
+  border-radius: 9999px;
+  padding: 0.25rem 0.6rem;
+}
+
+.info-card code {
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.info-card a {
+  color: var(--button);
+  font-weight: 600;
+}
+
+.info-callout {
+  border-left: 3px solid var(--button);
+}
+
 @media (max-width: 600px) {
   .hero-title {
     font-size: 1.8rem;
@@ -278,5 +401,18 @@
   }
   .stat-divider {
     display: none;
+  }
+
+  .info-page {
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .info-hero {
+    padding: 1.5rem;
+  }
+
+  .info-hero h1 {
+    font-size: 1.65rem;
   }
 }
