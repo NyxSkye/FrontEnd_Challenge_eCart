@@ -130,7 +130,7 @@
 
               <div class="explanation-block">
                 <h4>Data Structure</h4>
-                <p><strong>Sorted Array:</strong> Contiguous memory enables $O(1)$ random access, making binary search possible.</p>
+                <p><strong>Sorted Array:</strong> Contiguous memory enables <code>O(1)</code> random access, making binary search possible.</p>
               </div>
             </div>
 
@@ -150,7 +150,7 @@
                     <td><strong>Initial (Linear Scan)</strong></td>
                     <td><code>O(N)</code></td>
                     <td><code>O(1)</code></td>
-                    <td>Computes absolute differences across all $N$ products every search.</td>
+                    <td>Computes absolute differences across all <code>N</code> products every search.</td>
                   </tr>
                   <tr>
                     <td><strong>Optimized (Binary Search)</strong></td>
@@ -200,12 +200,12 @@
               <div class="explanation-block">
                 <h4>Core Concept</h4>
                 <p>
-                  When $K \ll N$, a full array sort is wasteful. By maintaining a Min-Heap of size $K$, the smallest of our current top candidates stays at the root. We only swap if a new product beats the root, discarding lower-scoring items in logarithmic time.
+                  When <code>K &lt;&lt; N</code>, a full array sort is wasteful. By maintaining a Min-Heap of size <code>K</code>, the smallest of our current top candidates stays at the root. We only swap if a new product beats the root, discarding lower-scoring items in logarithmic time.
                 </p>
               </div>
               <div class="explanation-block">
                 <h4>Data Structure</h4>
-                <p><strong>Min-Heap (Binary Heap):</strong> $O(1)$ peek at minimum of top $K$, and $O(\log K)$ insert/delete.</p>
+                <p><strong>Min-Heap (Binary Heap):</strong> <code>O(1)</code> peek at minimum of top <code>K</code>, and <code>O(log K)</code> insert/delete.</p>
               </div>
             </div>
             <div class="complexity-table-wrapper">
@@ -229,7 +229,7 @@
                     <td><strong>Min-Heap (Size K)</strong></td>
                     <td><code>O(N log K)</code></td>
                     <td><code>O(K)</code></td>
-                    <td>Optimal when $K$ is small. Memory never exceeds $K$ items.</td>
+                    <td>Optimal when <code>K</code> is small. Memory never exceeds <code>K</code> items.</td>
                   </tr>
                 </tbody>
               </table>
@@ -282,7 +282,7 @@
               </div>
               <div class="explanation-block">
                 <h4>Data Structure</h4>
-                <p><strong>Hash Map (Frequency Table):</strong> Enables $O(1)$ updates to co-occurrence counts across user histories.</p>
+                <p><strong>Hash Map (Frequency Table):</strong> Enables <code>O(1)</code> updates to co-occurrence counts across user histories.</p>
               </div>
             </div>
             <div class="complexity-table-wrapper">
@@ -365,7 +365,7 @@
               <div class="explanation-block">
                 <h4>Core Concept</h4>
                 <p>
-                  For every product, we make a binary choice: either include it (consuming weight and adding value) or leave it. By building an $(N+1) \times (W+1)$ DP table, optimal sub-structure is stored and reused.
+                  For every product, we make a binary choice: either include it (consuming weight and adding value) or leave it. By building an <code>(N + 1) × (W + 1)</code> DP table, optimal sub-structure is stored and reused.
                 </p>
               </div>
               <div class="explanation-block">
