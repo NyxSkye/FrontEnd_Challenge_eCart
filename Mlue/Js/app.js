@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const targetPrice = Number(rawVal);
-    if (isNaN(targetPrice) || targetPrice <= 0) {
+    if (!Number.isFinite(targetPrice) || targetPrice <= 0) {
       alert("Please enter a valid positive number.");
       return;
     }
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function selectProduct(product) {
     recSelectedId.value = product.id;
-    recSearchInput.value = `${product.name} (₹${product.price.toLocaleString("en-IN")})`;
+    recSearchInput.value = product.name;
     recDropdownList.classList.add("hidden");
   }
 
@@ -157,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     recSearchInput.addEventListener("input", (e) => {
+      recSelectedId.value = "";
       renderDropdownOptions(e.target.value);
     });
   }
@@ -191,6 +192,72 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- Challenge 6: Inventory Range Dashboard Controller ---
+  const invMinInput = document.getElementById("inv-min-price");
+  const invMaxInput = document.getElementById("inv-max-price");
+  const searchInventoryBtn = document.getElementById("search-inventory-btn");
+  const invManifestTitle = document.getElementById("inventory-manifest-title");
+
+  function executeInventorySearch() {
+    if (!invMinInput || !invMaxInput) return;
+
+    const minPriceValue = invMinInput.value.trim();
+    const maxPriceValue = invMaxInput.value.trim();
+    if (!minPriceValue || !maxPriceValue) {
+      alert("Please enter both minimum and maximum prices.");
+      return;
+    }
+
+    const minPrice = Number(minPriceValue);
+    const maxPrice = Number(maxPriceValue);
+    if (!Number.isFinite(minPrice) || !Number.isFinite(maxPrice)) {
+      alert("Please enter valid price values.");
+      return;
+    }
+
+    if (minPrice < 0 || maxPrice < 0) {
+      alert("Please enter non-negative price values.");
+      return;
+    }
+
+    if (minPrice > maxPrice) {
+      alert("Min Price cannot be greater than Max Price.");
+      return;
+    }
+
+    const result = InventoryRange.queryRange(minPrice, maxPrice);
+    UI.renderInventoryRangeResults(
+      "inventory-summary-container",
+      "inventory-results-container",
+      result
+    );
+
+    if (invManifestTitle) {
+      invManifestTitle.classList.remove("hidden");
+    }
+  }
+
+  if (searchInventoryBtn) {
+    searchInventoryBtn.addEventListener("click", executeInventorySearch);
+  }
+
+  [invMinInput, invMaxInput].forEach((input) => {
+    if (input) {
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          executeInventorySearch();
+        }
+      });
+    }
+  });
+
+  const challenge6Pill = document.querySelector('[data-target="challenge-6"]');
+  if (challenge6Pill) {
+    challenge6Pill.addEventListener("click", () => {
+      InventoryRange.init();
+    });
+  }
+
   // --- Challenge 10: Warehouse Knapsack Controller ---
   const capacityInput = document.getElementById("warehouse-capacity-input");
   const optimizeCapacityBtn = document.getElementById("optimize-capacity-btn");
@@ -204,9 +271,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const capacity = parseInt(rawCapacity, 10);
-    if (isNaN(capacity) || capacity <= 0) {
-      alert("Please enter a valid positive capacity in kg.");
+    const capacity = Number(rawCapacity);
+    if (!Number.isInteger(capacity) || capacity < 1 || capacity > 100) {
+      alert("Please enter a whole-number capacity between 1 and 100 kg.");
       return;
     }
 

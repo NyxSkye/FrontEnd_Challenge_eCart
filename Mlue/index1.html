@@ -341,6 +341,95 @@
         <div id="recommendations-results-container" class="product-grid"></div>
       </section>
 
+      <!-- Challenge 6 Section inside .workspace-area -->
+      <section id="challenge-6" class="challenge-panel hidden" role="tabpanel">
+        <header class="panel-header">
+          <div>
+            <h2>📊 Inventory Range Dashboard</h2>
+            <p class="panel-desc">Calculates aggregate inventory values over price windows using Prefix Sums and Binary Search.</p>
+          </div>
+          <span class="complexity-badge">O(log N) Query · O(1) Range Sum</span>
+        </header>
+
+        <!-- Clean Expandable Explanation Section -->
+        <details class="dsa-explanation-card">
+          <summary class="explanation-summary">
+            <span class="summary-left">
+              <span class="info-icon">💡</span>
+              <strong>How It Works &amp; Algorithm Details</strong>
+            </span>
+            <span class="toggle-indicator">▼</span>
+          </summary>
+
+          <div class="explanation-content">
+            <div class="explanation-grid">
+              <div class="explanation-block">
+                <h4>Core Concept</h4>
+                <p>
+                  Instead of scanning the whole catalog on every range change, products are pre-sorted by price once. A <strong>Prefix Sum Array</strong> stores cumulative values: <code>prefix[i] = prefix[i-1] + (price × stock)</code>. Binary search finds range boundary indices in logarithmic time, yielding immediate <code>O(1)</code> cumulative range sums.
+                </p>
+              </div>
+
+              <div class="explanation-block">
+                <h4>Data Structure</h4>
+                <p><strong>Prefix Sums + Binary Search:</strong> Dual arrays for cumulative value and product count enable constant-time interval aggregation.</p>
+              </div>
+            </div>
+
+            <div class="complexity-table-wrapper">
+              <table class="complexity-table">
+                <thead>
+                  <tr>
+                    <th>Approach</th>
+                    <th>Time Complexity</th>
+                    <th>Space Complexity</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Linear Scan</strong></td>
+                    <td><code>O(N)</code> per query</td>
+                    <td><code>O(1)</code></td>
+                    <td>Iterates over every product to filter and multiply price × stock.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Prefix Sums + Binary Search</strong></td>
+                    <td><code>O(log N + K)</code></td>
+                    <td><code>O(N)</code></td>
+                    <td><code>O(N log N)</code> pre-sort, then <code>O(1)</code> math for total inventory value.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <!-- Feature Controls -->
+        <div class="search-bar-card">
+          <div class="inventory-inputs-grid">
+            <div>
+              <label for="inv-min-price"><strong>Min Price (₹):</strong></label>
+              <input type="number" id="inv-min-price" value="5000" min="0" placeholder="e.g. 5000" />
+            </div>
+            <div>
+              <label for="inv-max-price"><strong>Max Price (₹):</strong></label>
+              <input type="number" id="inv-max-price" value="75000" min="0" placeholder="e.g. 75000" />
+            </div>
+            <div class="inventory-btn-wrapper">
+              <button id="search-inventory-btn" class="btn-primary">Calculate Inventory</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <div id="inventory-summary-container" class="knapsack-metrics-grid"></div>
+
+        <!-- Products in Range List -->
+        <h3 id="inventory-manifest-title" class="subsection-title hidden">Products in Selected Price Range</h3>
+        <div id="inventory-results-container" class="product-grid"></div>
+      </section>
+
       <!-- Challenge 10 Section -->
       <section id="challenge-10" class="challenge-panel hidden" role="tabpanel">
         <header class="panel-header">
@@ -441,6 +530,7 @@
   <script src="Js/Features/priceFinder.js"></script>
   <script src="Js/Features/popularProducts.js"></script>
   <script src="Js/Features/recommendations.js"></script>
+  <script src="Js/Features/inventoryRange.js"></script>
   <script src="Js/Features/warehouseOptimizer.js"></script>
   <script src="Js/app.js"></script>
 </body>

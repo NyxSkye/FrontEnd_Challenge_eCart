@@ -49,7 +49,7 @@
       <h1>Core computer science concepts behind Mlue</h1>
       <p>
         Each challenge connects an e-commerce task to a data structure or algorithm.
-        The dashboard currently runs challenges 1, 2, 5, and 10. The remaining entries
+        The dashboard currently runs challenges 1, 2, 5, 6 and 10. The remaining entries
         describe the project roadmap and display an “Under Construction” panel in the workspace.
       </p>
     </section>
@@ -88,6 +88,15 @@
         </article>
 
         <article class="info-card concept-card">
+          <span class="concept-number">Challenge 06 · Range queries</span>
+          <h2>Prefix sums and binary search</h2>
+          <span class="status-tag">Implemented</span>
+          <p><strong>Problem:</strong> Find products within an inclusive price range and calculate their combined inventory value.</p>
+          <p><strong>How it works:</strong> Products are sorted by price once, then prefix arrays store cumulative inventory value (price × stock) and product count. Binary searches locate the range boundaries; subtracting prefix values returns the aggregates without scanning the full catalog.</p>
+          <p><strong>Cost:</strong> Sorting and building the prefix arrays takes O(N log N) time and O(N) space. Each query takes O(log N + K) time, including listing K matching products; the aggregate calculations themselves take O(1).</p>
+        </article>
+
+        <article class="info-card concept-card">
           <span class="concept-number">Challenge 10 · Optimization</span>
           <h2>0/1 knapsack dynamic programming</h2>
           <span class="status-tag">Implemented</span>
@@ -119,13 +128,6 @@
         </article>
 
         <article class="info-card concept-card">
-          <span class="concept-number">Challenge 06 · Range queries</span>
-          <h2>Prefix sums and range data structures</h2>
-          <span class="status-tag">Roadmap · Not implemented</span>
-          <p>A prefix-sum array stores cumulative inventory values, so a static range total can be calculated by subtracting two prefix values in O(1) after O(N) preprocessing. If values must change frequently, a tree-based structure such as a segment tree supports updates and range queries in O(log N).</p>
-        </article>
-
-        <article class="info-card concept-card">
           <span class="concept-number">Challenge 07 · Prefix search</span>
           <h2>Trie (prefix tree)</h2>
           <span class="status-tag">Roadmap · Not implemented</span>
@@ -150,7 +152,7 @@
 
     <section class="info-card info-callout">
       <h2>Try the working challenges</h2>
-      <p>Open the <a href="index1.html">Individual DSA Tasks</a> workspace to run the implemented price finder, popularity ranking, recommendations, and warehouse optimizer. For controls and usage guidance, see <a href="help.html">Help &amp; User Manual</a>.</p>
+      <p>Open the <a href="index1.html">Individual DSA Tasks</a> workspace to run the implemented price finder, popularity ranking, recommendations, inventory range dashboard, and warehouse optimizer. For controls and usage guidance, see <a href="help.html">Help &amp; User Manual</a>.</p>
     </section>
   </main>
 </body>

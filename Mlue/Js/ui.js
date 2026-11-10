@@ -90,6 +90,49 @@ const UI = {
     });
   },
 
+  // Challenge 6: Inventory Range Controller
+  renderInventoryRangeResults(summaryContainerId, listContainerId, result) {
+    const summaryEl = document.getElementById(summaryContainerId);
+    const listEl = document.getElementById(listContainerId);
+
+    if (!summaryEl || !listEl) return;
+
+    summaryEl.innerHTML = `
+      <div class="knapsack-stat-card">
+        <span class="stat-label">Matching Products</span>
+        <strong class="stat-val text-primary">${result.count}</strong>
+      </div>
+      <div class="knapsack-stat-card">
+        <span class="stat-label">Total Inventory Value</span>
+        <strong class="stat-val">₹${result.totalInventoryValue.toLocaleString("en-IN")}</strong>
+      </div>
+      <div class="knapsack-stat-card">
+        <span class="stat-label">Price Range</span>
+        <strong class="stat-val" style="font-size: 1.05rem;">₹${result.minPrice.toLocaleString("en-IN")} — ₹${result.maxPrice.toLocaleString("en-IN")}</strong>
+      </div>
+    `;
+
+    listEl.innerHTML = "";
+    if (result.products.length === 0) {
+      listEl.innerHTML = `<p class="empty-msg">No products found within this price range.</p>`;
+      return;
+    }
+
+    result.products.forEach((product) => {
+      const card = document.createElement("article");
+      card.className = "product-card inventory-card";
+      card.innerHTML = `
+        <div class="inventory-stock-badge">Stock: ${product.stock} units</div>
+        <h3>${product.name}</h3>
+        <p class="brand">Brand: ${product.brand}</p>
+        <p class="price">Unit Price: ₹${product.price.toLocaleString("en-IN")}</p>
+        <p class="inventory-val-metric">📦 Total Value: <strong>₹${product.inventoryValue.toLocaleString("en-IN")}</strong></p>
+        <button class="btn-view" data-id="${product.id}">View Product</button>
+      `;
+      listEl.appendChild(card);
+    });
+  },
+
   // Challenge 10: Warehouse Optimizer Controller
   renderKnapsackResults(summaryContainerId, listContainerId, result) {
     const summaryEl = document.getElementById(summaryContainerId);

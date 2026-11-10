@@ -577,6 +577,69 @@ body {
   color: var(--light-text);
 }
 
+/* Challenge 6: Inventory Range Styles */
+.inventory-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.inventory-inputs-grid label {
+  display: block;
+  font-size: 0.88rem;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+}
+
+.inventory-inputs-grid input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: var(--surface-border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  background-color: var(--white);
+  font-family: inherit;
+}
+
+.inventory-btn-wrapper {
+  display: flex;
+}
+
+.inventory-card {
+  border-top: 3px solid #0284c7;
+  position: relative;
+}
+
+.inventory-stock-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: #f0f9ff;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.inventory-val-metric {
+  font-size: 0.82rem;
+  color: #0369a1;
+  background: #f0f9ff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  width: fit-content;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .inventory-inputs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Challenge 10 Knapsack Styles */
 .knapsack-metrics-grid {
   display: grid;

@@ -70,7 +70,8 @@
             <li><strong>Price Finder:</strong> enter a positive target price in rupees and select Search (or press Enter) to see the three closest products.</li>
             <li><strong>Top K Popular:</strong> choose how many products to show, then select Show Products.</li>
             <li><strong>Recommendations:</strong> type in the product field, choose an option from the suggestions, then select Get Recommendations.</li>
-            <li><strong>Warehouse Optimizer:</strong> enter a positive capacity in kilograms, then select Optimize Cargo (or press Enter).</li>
+            <li><strong>Inventory Range:</strong> enter non-negative minimum and maximum prices, then select Calculate Inventory (or press Enter). The range includes both endpoints and shows the matching products, their count, and their combined inventory value (price × stock).</li>
+            <li><strong>Warehouse Optimizer:</strong> enter a whole-number capacity from 1 to 100 kilograms, then select Optimize Cargo (or press Enter).</li>
           </ul>
         </article>
         <article class="info-card">
@@ -88,7 +89,7 @@
       <div class="info-grid">
         <article class="info-card">
           <h2>Why does a task show “Under Construction”?</h2>
-          <p>The current workspace implements challenges 1, 2, 5, and 10. The other numbered tasks are roadmap entries and do not yet have interactive implementations.</p>
+          <p>The current workspace implements challenges 1, 2, 5, 6, and 10. Challenges 3, 4, and 7–9 are roadmap entries and do not yet have interactive implementations.</p>
         </article>
         <article class="info-card">
           <h2>Where do recommendations come from?</h2>
@@ -100,7 +101,11 @@
         </article>
         <article class="info-card">
           <h2>Why are my results empty?</h2>
-          <p>Check that the input is a valid positive number, and for recommendations make sure you selected a suggestion rather than only typing a product name. A product with no matching sample history can legitimately return no recommendations.</p>
+          <p>For Inventory Range, make sure both prices are non-negative and the minimum is not greater than the maximum; a valid range with no matching catalog items will show no products. For recommendations, select a suggestion rather than only typing a product name. A product with no matching sample history can legitimately return no recommendations.</p>
+        </article>
+        <article class="info-card">
+          <h2>How is total inventory value calculated?</h2>
+          <p>For Inventory Range, each matching product contributes its catalog price multiplied by its stock quantity. The dashboard adds those values together for the selected inclusive price range; it is an estimate based on the sample catalog, not a live stock valuation.</p>
         </article>
         <article class="info-card">
           <h2>Can I undo or redo cart changes?</h2>
