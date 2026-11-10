@@ -120,7 +120,7 @@
   color: var(--button);
 }
 
-.stat-label {
+.hero-stats-row .stat-label {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;

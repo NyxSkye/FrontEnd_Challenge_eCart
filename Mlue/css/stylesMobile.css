@@ -79,16 +79,6 @@
     width: 100%;
   }
 
-  .inventory-card {
-    padding-top: 2.75rem;
-  }
-
-  .inventory-stock-badge {
-    top: 0.65rem;
-    right: 0.65rem;
-    max-width: calc(100% - 1.3rem);
-  }
-
   .inventory-val-metric {
     max-width: 100%;
     overflow-wrap: anywhere;
